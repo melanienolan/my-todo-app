@@ -2,6 +2,9 @@ import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 
 class TodoItem extends Component {
+  completeTodo(todo) {
+    this.props.onCompleted(todo);
+  }
   render() {
     let todoClass = this.props.todo.completed ? 'done' : 'undone';
     return (
@@ -9,6 +12,9 @@ class TodoItem extends Component {
         <p>
           {this.props.todo.title}
         </p>
+        <button onClick={() => this.completeTodo(this.props.todo)}>
+          Completed
+        </button>
         <button>X</button>
       </div>
     );

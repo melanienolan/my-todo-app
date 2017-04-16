@@ -84,6 +84,14 @@ class App extends Component {
       }
     );
   }
+  completedTodo(completedTodo) {
+    let todos = this.state.todos;
+    let index = todos.findIndex(todo => todo.id === completedTodo.id);
+    todos[index].completed = true;
+    this.setState({
+      todos: todos
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -93,7 +101,10 @@ class App extends Component {
             this.addTodo(value);
           }}
         />
-        <Todos todos={this.state.todos} />
+        <Todos
+          todos={this.state.todos}
+          onCompleted={todo => this.completedTodo(todo)}
+        />
       </div>
     );
   }
