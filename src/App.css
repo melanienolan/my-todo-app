@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+.done {
+  color: green;
+}
+.undone {
+  color: red;
+}
