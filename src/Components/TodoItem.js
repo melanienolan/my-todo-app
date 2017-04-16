@@ -5,6 +5,9 @@ class TodoItem extends Component {
   completeTodo(todo) {
     this.props.onCompleted(todo);
   }
+  deleteTodo(todo) {
+    this.props.onDeleted(todo);
+  }
   render() {
     let todoClass = this.props.todo.completed ? 'done' : 'undone';
     return (
@@ -18,7 +21,7 @@ class TodoItem extends Component {
         >
           Completed
         </button>
-        <button>X</button>
+        <button onClick={() => this.deleteTodo(this.props.todo)}>X</button>
       </div>
     );
   }

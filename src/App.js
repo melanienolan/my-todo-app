@@ -92,6 +92,14 @@ class App extends Component {
       todos: todos
     });
   }
+  deletedTodo(deletedTodo) {
+    let todos = this.state.todos;
+    let index = todos.findIndex(todo => todo.id === deletedTodo.id);
+    todos.splice(index, 1);
+    this.setState({
+      todos: todos
+    });
+  }
   render() {
     return (
       <div className="App">
@@ -104,6 +112,7 @@ class App extends Component {
         <Todos
           todos={this.state.todos}
           onCompleted={todo => this.completedTodo(todo)}
+          onDeleted={todo => this.deletedTodo(todo)}
         />
       </div>
     );

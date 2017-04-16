@@ -6,6 +6,9 @@ class Todos extends Component {
   completeTodo(todo) {
     this.props.onCompleted(todo);
   }
+  deleteTodo(todo) {
+    this.props.onDeleted(todo);
+  }
   render() {
     let todoItems;
     if (this.props.todos) {
@@ -15,6 +18,7 @@ class Todos extends Component {
             todo={todo}
             key={todo.id}
             onCompleted={() => this.completeTodo(todo)}
+            onDeleted={() => this.deleteTodo(todo)}
           />
         );
       });
