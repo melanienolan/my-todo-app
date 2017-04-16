@@ -12,7 +12,10 @@ class TodoItem extends Component {
         <p>
           {this.props.todo.title}
         </p>
-        <button onClick={() => this.completeTodo(this.props.todo)}>
+        <button
+          className="completed"
+          onClick={() => this.completeTodo(this.props.todo)}
+        >
           Completed
         </button>
         <button>X</button>

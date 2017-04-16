@@ -7,3 +7,6 @@
 .undone {
   color: red;
 }
+.done .completed {
+  display: none;
+}
