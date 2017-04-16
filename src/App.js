@@ -17,37 +17,37 @@ class App extends Component {
     this.setState({
       todos: [
         {
-          id: 1,
+          id: uuid.v4(),
           title: 'delectus aut autem',
           completed: true
         },
         {
-          id: 2,
+          id: uuid.v4(),
           title: 'quis ut nam facilis et officia qui',
           completed: false
         },
         {
-          id: 3,
+          id: uuid.v4(),
           title: 'fugiat veniam minus',
           completed: false
         },
         {
-          id: 4,
+          id: uuid.v4(),
           title: 'et porro tempora',
           completed: true
         },
         {
-          id: 5,
+          id: uuid.v4(),
           title: 'laboriosam mollitia et enim quasi adipisci quia provident illum',
           completed: false
         },
         {
-          id: 6,
+          id: uuid.v4(),
           title: 'qui ullam ratione quibusdam voluptatem quia omnis',
           completed: false
         },
         {
-          id: 7,
+          id: uuid.v4(),
           title: 'illo expedita consequatur quia in',
           completed: false
         }
@@ -61,8 +61,7 @@ class App extends Component {
     this.setState(
       {
         newTodo: {
-          userId: 1,
-          id: value,
+          id: uuid.v4(),
           title: value,
           completed: false
         }
