@@ -37,7 +37,8 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  todo: PropTypes.object
+  todo: PropTypes.object,
+  onAddTodoSubmit: PropTypes.func
 };
 
 export default Input;
