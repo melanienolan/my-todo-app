@@ -2,33 +2,22 @@ import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
 import PropTypes from 'prop-types';
 
 class Input extends Component {
-  constructor() {
-    super();
-    this.state = {
-      value: ''
-    };
-  }
   onInputChange(value) {
-    this.setState({
-      value: value
-    });
+    this.props.onUpdate(value);
   }
   onAddTodo(value) {
     this.props.onAddTodoSubmit(value);
-    this.setState({
-      value: ''
-    });
   }
   render() {
     return (
       <div>
         <input
           type="text"
-          value={this.state.value}
+          value={this.props.inputValue}
           onChange={event => this.onInputChange(event.target.value)}
         />
-        <p>{this.state.value}</p>
-        <button onClick={() => this.onAddTodo(this.state.value)}>
+        <p>{this.props.inputValue}</p>
+        <button onClick={() => this.onAddTodo(this.props.inputValue)}>
           Add todo
         </button>
       </div>
@@ -38,7 +27,9 @@ class Input extends Component {
 
 Input.propTypes = {
   todo: PropTypes.object,
-  onAddTodoSubmit: PropTypes.func
+  inputValue: PropTypes.string,
+  onAddTodoSubmit: PropTypes.func,
+  onUpdate: PropTypes.func
 };
 
 export default Input;

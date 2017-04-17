@@ -9,7 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: []
+      todos: [],
+      value: ''
     };
   }
   getTodos() {
@@ -56,6 +57,11 @@ class App extends Component {
   componentWillMount() {
     this.getTodos();
   }
+  updateInput(value) {
+    this.setState({
+      value: value
+    });
+  }
   addTodo(value) {
     let todos = this.state.todos;
     let newTodo = {
@@ -65,7 +71,8 @@ class App extends Component {
     };
     todos.push(newTodo);
     this.setState({
-      todos: todos
+      todos: todos,
+      value: ''
     });
   }
   completedTodo(completedTodo) {
@@ -89,8 +96,10 @@ class App extends Component {
       <div className="App">
         <Title todos={this.state.todos} />
         <Input
-          onAddTodoSubmit={value => {
-            this.addTodo(value);
+          inputValue={this.state.value}
+          onUpdate={value => this.updateInput(value)}
+          onAddTodoSubmit={() => {
+            this.addTodo(this.state.value);
           }}
         />
         <Todos
