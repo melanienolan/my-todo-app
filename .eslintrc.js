@@ -3,11 +3,7 @@ module.exports = {
     browser: true,
     es6: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings'
-  ],
+  extends: ['eslint:recommended'],
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -16,12 +12,15 @@ module.exports = {
     },
     sourceType: 'module'
   },
-  plugins: ['react', 'import'],
+  plugins: ['react'],
   rules: {
+    'no-unused-vars': 1,
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    'react/prop-types': 'error'
+    'react/prop-types': 'error',
+    'react/jsx-uses-vars': 2,
+    'react/jsx-uses-react': 2
   }
 };

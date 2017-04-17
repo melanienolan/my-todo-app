@@ -1,6 +1,6 @@
-import React from 'react'; // eslint-disable-line no-unused-vars
+import React from 'react';
 import PropTypes from 'prop-types';
-import TodoItem from './TodoItem'; // eslint-disable-line no-unused-vars
+import TodoItem from './TodoItem';
 
 const Todos = props => {
   let todoItems;
