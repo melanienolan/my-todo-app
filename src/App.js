@@ -9,8 +9,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
-      newTodo: {}
+      todos: []
     };
   }
   getTodos() {
@@ -58,24 +57,16 @@ class App extends Component {
     this.getTodos();
   }
   addTodo(value) {
-    this.setState(
-      {
-        newTodo: {
-          id: uuid.v4(),
-          title: value,
-          completed: false
-        }
-      },
-      function() {
-        let todos = this.state.todos;
-        let newTodo = this.state.newTodo;
-        todos.push(newTodo);
-        this.setState({
-          todos: todos,
-          newTodo: {}
-        });
-      }
-    );
+    let todos = this.state.todos;
+    let newTodo = {
+      id: uuid.v4(),
+      title: value,
+      completed: false
+    };
+    todos.push(newTodo);
+    this.setState({
+      todos: todos
+    });
   }
   completedTodo(completedTodo) {
     let todos = this.state.todos;
