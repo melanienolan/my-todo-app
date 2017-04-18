@@ -3,6 +3,7 @@ import Title from './Components/Title';
 import Todos from './Components/Todos';
 import Input from './Components/Input';
 import uuid from 'uuid';
+import db from './mockDB';
 import './App.css';
 
 class App extends Component {
@@ -14,44 +15,9 @@ class App extends Component {
     };
   }
   getTodos() {
+    const todos = db.getToDos();
     this.setState({
-      todos: [
-        {
-          id: uuid.v4(),
-          title: 'delectus aut autem',
-          completed: true
-        },
-        {
-          id: uuid.v4(),
-          title: 'quis ut nam facilis et officia qui',
-          completed: false
-        },
-        {
-          id: uuid.v4(),
-          title: 'fugiat veniam minus',
-          completed: false
-        },
-        {
-          id: uuid.v4(),
-          title: 'et porro tempora',
-          completed: true
-        },
-        {
-          id: uuid.v4(),
-          title: 'laboriosam mollitia et enim quasi adipisci quia provident illum',
-          completed: false
-        },
-        {
-          id: uuid.v4(),
-          title: 'qui ullam ratione quibusdam voluptatem quia omnis',
-          completed: false
-        },
-        {
-          id: uuid.v4(),
-          title: 'illo expedita consequatur quia in',
-          completed: false
-        }
-      ]
+      todos
     });
   }
   componentWillMount() {
