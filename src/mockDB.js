@@ -39,7 +39,11 @@ const todos = [
 ];
 
 function getToDos() {
-  return todos;
+  return new Promise(res => {
+    setTimeout(() => {
+      res(todos);
+    }, 1000);
+  });
 }
 
 export default {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 import Title from './Components/Title';
 import Todos from './Components/Todos';
 import Input from './Components/Input';
-import uuid from 'uuid';
 import db from './mockDB';
 import './App.css';
 
@@ -15,9 +15,10 @@ class App extends Component {
     };
   }
   getTodos() {
-    const todos = db.getToDos();
-    this.setState({
-      todos
+    db.getToDos().then(todos => {
+      this.setState({
+        todos
+      });
     });
   }
   componentWillMount() {
