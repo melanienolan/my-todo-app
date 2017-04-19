@@ -11,13 +11,15 @@ class App extends Component {
     super();
     this.state = {
       todos: [],
-      value: ''
+      value: '',
+      isLoading: true
     };
   }
   getTodos() {
     db.getToDos().then(todos => {
       this.setState({
-        todos
+        todos,
+        isLoading: false
       });
     });
   }
@@ -59,23 +61,27 @@ class App extends Component {
     });
   }
   render() {
-    return (
-      <div className="App">
-        <Title todos={this.state.todos} />
-        <Input
-          inputValue={this.state.value}
-          onUpdate={value => this.updateInput(value)}
-          onAddTodoSubmit={() => {
-            this.addTodo(this.state.value);
-          }}
-        />
-        <Todos
-          todos={this.state.todos}
-          onCompleted={todo => this.completedTodo(todo)}
-          onDeleted={todo => this.deletedTodo(todo)}
-        />
-      </div>
-    );
+    if (this.state.isLoading) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div className="App">
+          <Title todos={this.state.todos} />
+          <Input
+            inputValue={this.state.value}
+            onUpdate={value => this.updateInput(value)}
+            onAddTodoSubmit={() => {
+              this.addTodo(this.state.value);
+            }}
+          />
+          <Todos
+            todos={this.state.todos}
+            onCompleted={todo => this.completedTodo(todo)}
+            onDeleted={todo => this.deletedTodo(todo)}
+          />
+        </div>
+      );
+    }
   }
 }
 
