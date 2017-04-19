@@ -28,7 +28,7 @@ class App extends Component {
   }
   updateInput(value) {
     this.setState({
-      value: value
+      value
     });
   }
   addTodo(value) {
@@ -40,7 +40,7 @@ class App extends Component {
     };
     todos.push(newTodo);
     this.setState({
-      todos: todos,
+      todos,
       value: ''
     });
   }
@@ -49,7 +49,7 @@ class App extends Component {
     let index = todos.findIndex(todo => todo.id === completedTodo.id);
     todos[index].completed = true;
     this.setState({
-      todos: todos
+      todos
     });
   }
   deletedTodo(deletedTodo) {
@@ -57,7 +57,7 @@ class App extends Component {
     let index = todos.findIndex(todo => todo.id === deletedTodo.id);
     todos.splice(index, 1);
     this.setState({
-      todos: todos
+      todos
     });
   }
   render() {
