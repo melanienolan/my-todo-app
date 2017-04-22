@@ -10,7 +10,7 @@ const Input = props => {
         onChange={event => props.onUpdate(event.target.value)}
       />
       <p>{props.inputValue}</p>
-      <button onClick={() => props.onAddTodoSubmit(props.inputValue)}>
+      <button onClick={() => props.onAddTodoSubmit()}>
         Add todo
       </button>
     </div>
