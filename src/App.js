@@ -31,8 +31,9 @@ class App extends Component {
       value
     });
   }
-  addTodo(value) {
+  addTodo() {
     let todos = this.state.todos;
+    let value = this.state.value;
     let newTodo = {
       id: uuid.v4(),
       title: value,
