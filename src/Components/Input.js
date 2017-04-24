@@ -2,15 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = props => {
+  const inputStyles = {
+    display: 'flex',
+    justifyContent: 'center'
+  };
+  const addTodoButtonStyles = {
+    height: '40px'
+  };
   return (
-    <div>
+    <div style={inputStyles}>
       <input
         type="text"
         value={props.inputValue}
         onChange={event => props.onUpdate(event.target.value)}
       />
-      <p>{props.inputValue}</p>
-      <button onClick={() => props.onAddTodoSubmit()}>
+      <button
+        style={addTodoButtonStyles}
+        onClick={() => props.onAddTodoSubmit()}
+      >
         Add todo
       </button>
     </div>
