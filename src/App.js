@@ -32,8 +32,7 @@ class App extends Component {
     });
   }
   addTodo() {
-    let todos = this.state.todos;
-    let value = this.state.value;
+    let { todos, value } = this.state;
     let newTodo = {
       id: uuid.v4(),
       title: value,
@@ -46,7 +45,7 @@ class App extends Component {
     });
   }
   completedTodo(completedTodo) {
-    let todos = this.state.todos;
+    let { todos } = this.state;
     let index = todos.findIndex(todo => todo.id === completedTodo.id);
     todos[index].completed = true;
     this.setState({
@@ -54,7 +53,7 @@ class App extends Component {
     });
   }
   deletedTodo(deletedTodo) {
-    let todos = this.state.todos;
+    let { todos } = this.state;
     let index = todos.findIndex(todo => todo.id === deletedTodo.id);
     todos.splice(index, 1);
     this.setState({
