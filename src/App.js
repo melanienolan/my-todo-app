@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { compose } from 'recompose';
 import uuid from 'uuid';
 import Title from './Components/Title';
 import Todos from './Components/Todos';
@@ -85,4 +86,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default compose()(App);
