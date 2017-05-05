@@ -12,15 +12,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [],
       value: ''
     };
   }
   getTodos() {
     db.getToDos().then(todos => {
-      this.setState({
-        todos
-      });
+      this.props.updateTodos(todos);
       this.props.updateIsLoading(false);
     });
   }
@@ -33,7 +30,8 @@ class App extends Component {
     });
   }
   addTodo() {
-    let { todos, value } = this.state;
+    let { value } = this.state;
+    let { todos } = this.props;
     let newTodo = {
       id: uuid.v4(),
       title: value,
@@ -41,25 +39,21 @@ class App extends Component {
     };
     todos.push(newTodo);
     this.setState({
-      todos,
       value: ''
     });
+    this.props.updateTodos(todos);
   }
   completedTodo(completedTodo) {
-    let { todos } = this.state;
+    let { todos } = this.props;
     let index = todos.findIndex(todo => todo.id === completedTodo.id);
     todos[index].completed = true;
-    this.setState({
-      todos
-    });
+    this.props.updateTodos(todos);
   }
   deletedTodo(deletedTodo) {
-    let { todos } = this.state;
+    let { todos } = this.props;
     let index = todos.findIndex(todo => todo.id === deletedTodo.id);
     todos.splice(index, 1);
-    this.setState({
-      todos
-    });
+    this.props.updateTodos(todos);
   }
   render() {
     if (this.props.isLoading) {
@@ -67,7 +61,7 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <Title todos={this.state.todos} />
+          <Title todos={this.props.todos} />
           <Input
             inputValue={this.state.value}
             onUpdate={value => this.updateInput(value)}
@@ -76,7 +70,7 @@ class App extends Component {
             }}
           />
           <Todos
-            todos={this.state.todos}
+            todos={this.props.todos}
             onCompleted={todo => this.completedTodo(todo)}
             onDeleted={todo => this.deletedTodo(todo)}
           />
@@ -86,4 +80,7 @@ class App extends Component {
   }
 }
 
-export default compose(withState('isLoading', 'updateIsLoading', true))(App);
+export default compose(
+  withState('isLoading', 'updateIsLoading', true),
+  withState('todos', 'updateTodos', [])
+)(App);
