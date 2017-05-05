@@ -1,6 +1,6 @@
 /* eslint react/prop-types: 0 */
 import React, { Component } from 'react';
-import { compose, withState } from 'recompose';
+import { compose, withState, lifecycle } from 'recompose';
 import uuid from 'uuid';
 import Title from './Components/Title';
 import Todos from './Components/Todos';
@@ -14,15 +14,6 @@ class App extends Component {
     this.state = {
       value: ''
     };
-  }
-  getTodos() {
-    db.getToDos().then(todos => {
-      this.props.updateTodos(todos);
-      this.props.updateIsLoading(false);
-    });
-  }
-  componentWillMount() {
-    this.getTodos();
   }
   updateInput(value) {
     this.setState({
@@ -82,5 +73,14 @@ class App extends Component {
 
 export default compose(
   withState('isLoading', 'updateIsLoading', true),
-  withState('todos', 'updateTodos', [])
+  withState('todos', 'updateTodos', []),
+  lifecycle({
+    componentWillMount() {
+      db.getToDos().then(todos => {
+        const { updateTodos, updateIsLoading } = this.props;
+        updateTodos(todos);
+        updateIsLoading(false);
+      });
+    }
+  })
 )(App);
