@@ -16,12 +16,25 @@ class App extends Component {
     };
   }
   getTodos() {
-    db.getToDos().then(todos => {
+    if (localStorage.todos) {
+      let storage = JSON.parse(Object.values(localStorage));
       this.setState({
-        todos,
+        todos: storage,
         isLoading: false
       });
-    });
+    } else {
+      db.getToDos().then(todos => {
+        this.setState(
+          {
+            todos,
+            isLoading: false
+          },
+          function() {
+            localStorage.setItem('todos', JSON.stringify(this.state.todos));
+          }
+        );
+      });
+    }
   }
   componentWillMount() {
     this.getTodos();
@@ -39,6 +52,7 @@ class App extends Component {
       completed: false
     };
     todos.push(newTodo);
+    localStorage.setItem('todos', JSON.stringify(todos));
     this.setState({
       todos,
       value: ''
@@ -48,6 +62,7 @@ class App extends Component {
     let { todos } = this.state;
     let index = todos.findIndex(todo => todo.id === completedTodo.id);
     todos[index].completed = true;
+    localStorage.setItem('todos', JSON.stringify(todos));
     this.setState({
       todos
     });
@@ -56,6 +71,7 @@ class App extends Component {
     let { todos } = this.state;
     let index = todos.findIndex(todo => todo.id === deletedTodo.id);
     todos.splice(index, 1);
+    localStorage.setItem('todos', JSON.stringify(todos));
     this.setState({
       todos
     });
