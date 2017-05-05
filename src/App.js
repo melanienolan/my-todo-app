@@ -11,6 +11,8 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
+    // todo: move `value` state to hoc, much like `todos` and `isLoading`
+    // that is the last piece of state, so we should be able to refactor App component from class to function
     this.state = {
       value: ''
     };
