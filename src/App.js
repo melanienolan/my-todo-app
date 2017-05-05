@@ -1,6 +1,6 @@
 /* eslint react/prop-types: 0 */
 import React, { Component } from 'react';
-import { compose } from 'recompose';
+import { compose, withState } from 'recompose';
 import uuid from 'uuid';
 import Title from './Components/Title';
 import Todos from './Components/Todos';
@@ -13,16 +13,15 @@ class App extends Component {
     super();
     this.state = {
       todos: [],
-      value: '',
-      isLoading: true
+      value: ''
     };
   }
   getTodos() {
     db.getToDos().then(todos => {
       this.setState({
-        todos,
-        isLoading: false
+        todos
       });
+      this.props.updateIsLoading(false);
     });
   }
   componentWillMount() {
@@ -63,7 +62,7 @@ class App extends Component {
     });
   }
   render() {
-    if (this.state.isLoading) {
+    if (this.props.isLoading) {
       return <div>Loading...</div>;
     } else {
       return (
@@ -87,4 +86,4 @@ class App extends Component {
   }
 }
 
-export default compose()(App);
+export default compose(withState('isLoading', 'updateIsLoading', true))(App);
