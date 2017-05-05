@@ -1,4 +1,6 @@
+/* eslint react/prop-types: 0 */
 import React, { Component } from 'react';
+import { compose, withState, lifecycle } from 'recompose';
 import uuid from 'uuid';
 import Title from './Components/Title';
 import Todos from './Components/Todos';
@@ -9,22 +11,11 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
+    // todo: move `value` state to hoc, much like `todos` and `isLoading`
+    // that is the last piece of state, so we should be able to refactor App component from class to function
     this.state = {
-      todos: [],
-      value: '',
-      isLoading: true
+      value: ''
     };
-  }
-  getTodos() {
-    db.getToDos().then(todos => {
-      this.setState({
-        todos,
-        isLoading: false
-      });
-    });
-  }
-  componentWillMount() {
-    this.getTodos();
   }
   updateInput(value) {
     this.setState({
@@ -32,7 +23,8 @@ class App extends Component {
     });
   }
   addTodo() {
-    let { todos, value } = this.state;
+    let { value } = this.state;
+    let { todos } = this.props;
     let newTodo = {
       id: uuid.v4(),
       title: value,
@@ -40,33 +32,29 @@ class App extends Component {
     };
     todos.push(newTodo);
     this.setState({
-      todos,
       value: ''
     });
+    this.props.updateTodos(todos);
   }
   completedTodo(completedTodo) {
-    let { todos } = this.state;
+    let { todos } = this.props;
     let index = todos.findIndex(todo => todo.id === completedTodo.id);
     todos[index].completed = true;
-    this.setState({
-      todos
-    });
+    this.props.updateTodos(todos);
   }
   deletedTodo(deletedTodo) {
-    let { todos } = this.state;
+    let { todos } = this.props;
     let index = todos.findIndex(todo => todo.id === deletedTodo.id);
     todos.splice(index, 1);
-    this.setState({
-      todos
-    });
+    this.props.updateTodos(todos);
   }
   render() {
-    if (this.state.isLoading) {
+    if (this.props.isLoading) {
       return <div>Loading...</div>;
     } else {
       return (
         <div className="App">
-          <Title todos={this.state.todos} />
+          <Title todos={this.props.todos} />
           <Input
             inputValue={this.state.value}
             onUpdate={value => this.updateInput(value)}
@@ -75,7 +63,7 @@ class App extends Component {
             }}
           />
           <Todos
-            todos={this.state.todos}
+            todos={this.props.todos}
             onCompleted={todo => this.completedTodo(todo)}
             onDeleted={todo => this.deletedTodo(todo)}
           />
@@ -85,4 +73,16 @@ class App extends Component {
   }
 }
 
-export default App;
+export default compose(
+  withState('isLoading', 'updateIsLoading', true),
+  withState('todos', 'updateTodos', []),
+  lifecycle({
+    componentWillMount() {
+      db.getToDos().then(todos => {
+        const { updateTodos, updateIsLoading } = this.props;
+        updateTodos(todos);
+        updateIsLoading(false);
+      });
+    }
+  })
+)(App);
