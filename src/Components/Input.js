@@ -15,6 +15,8 @@ const Input = props => {
         type="text"
         value={props.inputValue}
         onChange={event => props.onUpdate(event.target.value)}
+        onKeyUp={event =>
+          (event.keyCode === 13 ? props.onAddTodoSubmit() : false)}
       />
       <button
         style={addTodoButtonStyles}
