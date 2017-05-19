@@ -1,0 +1,110 @@
+:root {
+  font: 400 16px 'Roboto', sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #d3d0da;
+}
+.container {
+  width: 350px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #d3d0da;
+  /*background-color: #a8a1b6;*/
+}
+header {
+  text-align: center;
+  padding: 20px;
+}
+.add-todo {
+  width: 350px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #f6f5f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*.add-todo:focus {
+  background-color: #e4e2e9;
+}*/
+[class^="add-todo__"] {
+  border: 0;
+}
+.add-todo__input {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2em;
+}
+.add-todo__input:focus {
+  outline: none;
+}
+.add-todo__button {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #c2bdcb;
+  color: #ffffff;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.todo-list {
+  width: 350px;
+  margin: 2px auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.todo-list__item {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  margin: 1px 0;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #f6f5f7;
+}
+.todo-list__text {
+  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[class^="todo-list__button"] {
+  width: 20px;
+  height: 20px;
+  font-size: 1.2em;
+  line-height: 14px;
+  cursor: pointer;
+}
+[class^="todo-list__button"]:focus {
+  outline: none;
+}
+
+.todo-list__button--completed {
+  /*border: 1px solid #64606d;
+  border-radius: 5px;*/
+  border: 0;
+  background-color: transparent;
+  color: #9790a3;
+}
+/*.todo-list__button--notcompleted {
+  border: 1px solid #64606d;
+  border-radius: 5px;
+  background-color: #c2bdcb;
+  color: transparent;
+}*/
+.todo-list__button--delete {
+  border: 0;
+  background-color: transparent;
+  color: #9790a3;
+}
