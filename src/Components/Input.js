@@ -1,17 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Plus from 'react-icons/lib/fa/plus';
 
 const Input = props => {
-  const inputStyles = {
-    display: 'flex',
-    justifyContent: 'center'
-  };
-  const addTodoButtonStyles = {
-    height: '40px'
-  };
   return (
-    <div style={inputStyles}>
+    <div className="add-todo">
       <input
+        className="add-todo__input"
         type="text"
         value={props.inputValue}
         onChange={event => props.onUpdate(event.target.value)}
@@ -19,10 +14,10 @@ const Input = props => {
           (event.keyCode === 13 ? props.onAddTodoSubmit() : false)}
       />
       <button
-        style={addTodoButtonStyles}
+        className="add-todo__button"
         onClick={() => props.onAddTodoSubmit()}
       >
-        Add todo
+        <Plus />
       </button>
     </div>
   );
