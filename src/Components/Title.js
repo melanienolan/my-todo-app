@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Title = props => {
-  const titleStyles = {
-    textAlign: 'center',
-    color: '#666666'
-  };
   let completed;
   let total;
   if (props.todos) {
@@ -13,10 +9,10 @@ const Title = props => {
     completed = props.todos.filter(todo => todo.completed).length;
   }
   return (
-    <div style={titleStyles}>
+    <header>
       <h1>My Todos</h1>
       <p>{completed} / {total}</p>
-    </div>
+    </header>
   );
 };
 
