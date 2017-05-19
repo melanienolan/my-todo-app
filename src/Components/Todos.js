@@ -20,8 +20,8 @@ const Todos = props => {
   return (
     <CSSTransitionGroup
       transitionName="grow"
-      transitionEnterTimeout={300}
-      transitionLeaveTimeout={300}
+      transitionEnterTimeout={200}
+      transitionLeaveTimeout={200}
       className="todo-list"
     >
       {todoItems}
