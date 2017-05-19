@@ -46,17 +46,24 @@ class App extends Component {
   }
   addTodo() {
     let { todos, value } = this.state;
-    let newTodo = {
-      id: uuid.v4(),
-      title: value,
-      completed: false
-    };
-    todos.push(newTodo);
-    localStorage.setItem('todos', JSON.stringify(todos));
-    this.setState({
-      todos,
-      value: ''
-    });
+    if (value.trim().length === 0) {
+      console.log('empty');
+      this.setState({
+        value: ''
+      });
+    } else {
+      let newTodo = {
+        id: uuid.v4(),
+        title: value,
+        completed: false
+      };
+      todos.push(newTodo);
+      localStorage.setItem('todos', JSON.stringify(todos));
+      this.setState({
+        todos,
+        value: ''
+      });
+    }
   }
   completedTodo(completedTodo) {
     let { todos } = this.state;
