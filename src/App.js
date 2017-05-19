@@ -3,7 +3,7 @@ import uuid from 'uuid';
 import Title from './Components/Title';
 import Todos from './Components/Todos';
 import Input from './Components/Input';
-import db from './mockDB';
+// import db from './mockDB';
 import './App.css';
 
 class App extends Component {
@@ -23,16 +23,8 @@ class App extends Component {
         isLoading: false
       });
     } else {
-      db.getToDos().then(todos => {
-        this.setState(
-          {
-            todos,
-            isLoading: false
-          },
-          function() {
-            localStorage.setItem('todos', JSON.stringify(this.state.todos));
-          }
-        );
+      this.setState({
+        isLoading: false
       });
     }
   }
