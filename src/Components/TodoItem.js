@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Check from 'react-icons/lib/fa/check';
 import Close from 'react-icons/lib/fa/close';
-
 import CircleThin from 'react-icons/lib/fa/circle-thin';
 
 const TodoItem = props => {

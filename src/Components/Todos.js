@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 const Todos = props => {
   let todoItems;
@@ -17,9 +18,14 @@ const Todos = props => {
     });
   }
   return (
-    <div className="todo-list">
+    <CSSTransitionGroup
+      transitionName="grow"
+      transitionEnterTimeout={300}
+      transitionLeaveTimeout={300}
+      className="todo-list"
+    >
       {todoItems}
-    </div>
+    </CSSTransitionGroup>
   );
 };
 
