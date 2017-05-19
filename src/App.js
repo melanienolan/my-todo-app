@@ -47,7 +47,6 @@ class App extends Component {
   addTodo() {
     let { todos, value } = this.state;
     if (value.trim().length === 0) {
-      console.log('empty');
       this.setState({
         value: ''
       });
