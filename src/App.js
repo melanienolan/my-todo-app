@@ -81,7 +81,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div className="App">
+        <div className="container">
           <Title todos={this.state.todos} />
           <Input
             inputValue={this.state.value}
