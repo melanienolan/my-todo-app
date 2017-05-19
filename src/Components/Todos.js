@@ -17,7 +17,7 @@ const Todos = props => {
     });
   }
   return (
-    <div>
+    <div className="todo-list">
       {todoItems}
     </div>
   );
