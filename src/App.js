@@ -17,7 +17,7 @@ class App extends Component {
   }
   getTodos() {
     if (localStorage.todos) {
-      let storage = JSON.parse(Object.values(localStorage));
+      let storage = JSON.parse(localStorage.todos);
       this.setState({
         todos: storage,
         isLoading: false
