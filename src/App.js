@@ -56,15 +56,6 @@ class App extends Component {
       });
     }
   }
-  // completedTodo(completedTodo) {
-  //   let { todos } = this.state;
-  //   let index = todos.findIndex(todo => todo.id === completedTodo.id);
-  //   todos[index].completed = true;
-  //   localStorage.setItem('todos', JSON.stringify(todos));
-  //   this.setState({
-  //     todos
-  //   });
-  // }
   completedTodo(completedTodo) {
     let { todos } = this.state;
     let index = todos.findIndex(todo => todo.id === completedTodo.id);
