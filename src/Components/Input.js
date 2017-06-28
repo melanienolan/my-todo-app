@@ -8,6 +8,7 @@ const Input = props => {
       <input
         className="add-todo__input"
         type="text"
+        placeholder="Add todo..."
         value={props.inputValue}
         onChange={event => props.onUpdate(event.target.value)}
         onKeyUp={event =>
