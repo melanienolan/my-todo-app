@@ -26,7 +26,7 @@ it('renders correct number of complete and incomplete todos', () => {
 });
 
 it('renders title header message', () => {
-  const wrapper = shallow(<Title />);
-  const welcome = <h1>My Todos</h1>;
-  expect(wrapper.contains(welcome)).toEqual(true);
+  const titleComponent = shallow(<Title />);
+  const title = <h1>My Todos</h1>;
+  expect(titleComponent.contains(title)).toEqual(true);
 });
