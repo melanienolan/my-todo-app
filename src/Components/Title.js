@@ -11,7 +11,9 @@ const Title = props => {
   return (
     <header>
       <h1>My Todos</h1>
-      <p>{completed} / {total}</p>
+      <p>
+        {completed} / {total}
+      </p>
     </header>
   );
 };
