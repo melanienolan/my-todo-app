@@ -84,9 +84,7 @@ class App extends Component {
           <Input
             inputValue={this.state.value}
             onUpdate={value => this.updateInput(value)}
-            onAddTodoSubmit={() => {
-              this.addTodo(this.state.value);
-            }}
+            onAddTodoSubmit={() => this.addTodo(this.state.value)}
           />
           <Todos
             todos={this.state.todos}
