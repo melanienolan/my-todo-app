@@ -1,10 +1,12 @@
-exports[`test renders title component 1`] = `
+exports[`test renders correct number of complete and incomplete todos 1`] = `
 <header>
   <h1>
     My Todos
   </h1>
   <p>
+    1
      / 
+    2
   </p>
 </header>
 `;
