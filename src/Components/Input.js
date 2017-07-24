@@ -11,13 +11,9 @@ const Input = props => {
         placeholder="Add todo..."
         value={props.inputValue}
         onChange={event => props.onUpdate(event.target.value)}
-        onKeyUp={event =>
-          (event.keyCode === 13 ? props.onAddTodoSubmit() : false)}
+        onKeyUp={event => (event.keyCode === 13 ? props.onAddTodoSubmit() : false)}
       />
-      <button
-        className="add-todo__button"
-        onClick={() => props.onAddTodoSubmit()}
-      >
+      <button className="add-todo__button" onClick={() => props.onAddTodoSubmit()}>
         <Plus />
       </button>
     </div>
