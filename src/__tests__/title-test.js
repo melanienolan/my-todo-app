@@ -21,8 +21,8 @@ it('renders without crashing', () => {
 });
 
 it('renders correct number of complete and incomplete todos', () => {
-  const wrapper = shallow(<Title todos={todos} />);
-  expect(toJson(wrapper)).toMatchSnapshot();
+  const titleComponent = shallow(<Title todos={todos} />);
+  expect(toJson(titleComponent)).toMatchSnapshot();
 });
 
 it('renders title header message', () => {
