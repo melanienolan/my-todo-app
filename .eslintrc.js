@@ -1,8 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
-    'jest/globals': true
+    es6: true
   },
   extends: ['eslint:recommended'],
   parserOptions: {
@@ -13,7 +12,7 @@ module.exports = {
     },
     sourceType: 'module'
   },
-  plugins: ['react', 'jest'],
+  plugins: ['react'],
   rules: {
     'no-unused-vars': 1,
     indent: ['error', 2],
@@ -22,10 +21,6 @@ module.exports = {
     semi: ['error', 'always'],
     'react/prop-types': 'error',
     'react/jsx-uses-vars': 2,
-    'react/jsx-uses-react': 2,
-    'jest/no-disabled-tests': 'warn',
-    'jest/no-focused-tests': 'error',
-    'jest/no-identical-title': 'error',
-    'jest/valid-expect': 'error'
+    'react/jsx-uses-react': 2
   }
 };
