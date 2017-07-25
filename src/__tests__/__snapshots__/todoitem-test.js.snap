@@ -1,38 +1,48 @@
-exports[`test renders complete todo item 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders complete todo item 1`] = `
 <div
-  className="todo-list__item">
+  className="todo-list__item"
+>
   <button
     className="todo-list__button--completed"
-    onClick={[Function]}>
+    onClick={[Function]}
+  >
     <FaCheck />
   </button>
   <p
-    className="todo-list__text">
+    className="todo-list__text"
+  >
     complete todo
   </p>
   <button
     className="todo-list__button--delete"
-    onClick={[Function]}>
+    onClick={[Function]}
+  >
     <FaClose />
   </button>
 </div>
 `;
 
-exports[`test renders incomplete todo item 1`] = `
+exports[`renders incomplete todo item 1`] = `
 <div
-  className="todo-list__item">
+  className="todo-list__item"
+>
   <button
     className="todo-list__button--completed"
-    onClick={[Function]}>
+    onClick={[Function]}
+  >
     <FaCircleThin />
   </button>
   <p
-    className="todo-list__text">
+    className="todo-list__text"
+  >
     incomplete todo
   </p>
   <button
     className="todo-list__button--delete"
-    onClick={[Function]}>
+    onClick={[Function]}
+  >
     <FaClose />
   </button>
 </div>

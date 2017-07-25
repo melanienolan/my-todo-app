@@ -1,4 +1,6 @@
-exports[`test renders correct number of complete and incomplete todos 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correct number of complete and incomplete todos 1`] = `
 <header>
   <h1>
     My Todos
