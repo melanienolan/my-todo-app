@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders todo component with todo items 1`] = `
+<CSSTransitionGroup
+  className="todo-list"
+  transitionAppear={false}
+  transitionEnter={true}
+  transitionEnterTimeout={200}
+  transitionLeave={true}
+  transitionLeaveTimeout={200}
+  transitionName="grow"
+>
+  <TodoItem
+    onCompleted={[Function]}
+    onDeleted={[Function]}
+    todo={
+      Object {
+        "completed": true,
+        "id": "e41fac97-3d2d-457a-9990-479f016ad0ce",
+        "title": "complete todo",
+      }
+    }
+  />
+  <TodoItem
+    onCompleted={[Function]}
+    onDeleted={[Function]}
+    todo={
+      Object {
+        "completed": false,
+        "id": "e41fac97-3d2d-457a-9990-479f016ad0ce",
+        "title": "incomplete todo",
+      }
+    }
+  />
+</CSSTransitionGroup>
+`;
