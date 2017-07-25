@@ -10,11 +10,14 @@
     "uuid": "^3.0.1"
   },
   "devDependencies": {
+    "amdefine": "^1.0.1",
+    "jest-cli": "^20.0.4",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^6.10.3",
-    "jest": "18.1.0",
+    "jest": "^18.1.0",
     "jest-enzyme": "2.1.2",
     "prop-types": "^15.5.8",
     "react-scripts": "0.9.5",
