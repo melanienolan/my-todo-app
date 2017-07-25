@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders todo component with todo items 1`] = `
+<div
+  className="add-todo"
+>
+  <input
+    className="add-todo__input"
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    placeholder="Add todo..."
+    type="text"
+    value="Here is the input value"
+  />
+  <button
+    className="add-todo__button"
+    onClick={[Function]}
+  >
+    <FaPlus />
+  </button>
+</div>
+`;
