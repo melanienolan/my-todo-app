@@ -2,8 +2,7 @@ import React from 'react';
 import Input from '../Components/Input';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-
-const inputValue = 'Here is the input value';
+import { inputValue } from '../mocks/todos';
 
 it('renders input component without crashing', () => {
   shallow(<Input inputValue={inputValue} />);

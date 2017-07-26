@@ -10,3 +10,4 @@ export const todos = [
     title: 'incomplete todo'
   }
 ];
+export const inputValue = 'Here is the input value';
