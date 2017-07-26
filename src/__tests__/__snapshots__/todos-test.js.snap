@@ -1,6 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders todo component with todo items 1`] = `
+exports[`fully renders todos component with todo items 1`] = `
+<Todos
+  todos={
+    Array [
+      Object {
+        "completed": true,
+        "id": "e41fac97-3d2d-457a-9990-479f016ad0ce",
+        "title": "complete todo",
+      },
+      Object {
+        "completed": false,
+        "id": "e41fac97-3d2d-457a-9990-479f016ad0ce",
+        "title": "incomplete todo",
+      },
+    ]
+  }
+>
+  <CSSTransitionGroup
+    className="todo-list"
+    transitionAppear={false}
+    transitionEnter={true}
+    transitionEnterTimeout={200}
+    transitionLeave={true}
+    transitionLeaveTimeout={200}
+    transitionName="grow"
+  >
+    <TransitionGroup
+      childFactory={[Function]}
+      className="todo-list"
+      component="span"
+      transitionAppear={false}
+      transitionEnter={true}
+      transitionEnterTimeout={200}
+      transitionLeave={true}
+      transitionLeaveTimeout={200}
+      transitionName="grow"
+    >
+      <span
+        className="todo-list"
+      >
+        <CSSTransitionGroupChild
+          appear={false}
+          enter={true}
+          enterTimeout={200}
+          leave={true}
+          leaveTimeout={200}
+          name="grow"
+        >
+          <TodoItem
+            onCompleted={[Function]}
+            onDeleted={[Function]}
+            todo={
+              Object {
+                "completed": false,
+                "id": "e41fac97-3d2d-457a-9990-479f016ad0ce",
+                "title": "incomplete todo",
+              }
+            }
+          >
+            <div
+              className="todo-list__item"
+            >
+              <button
+                className="todo-list__button--completed"
+                onClick={[Function]}
+              >
+                <FaCircleThin>
+                  <IconBase
+                    viewBox="0 0 40 40"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      preserveAspectRatio="xMidYMid meet"
+                      style={
+                        Object {
+                          "color": undefined,
+                          "verticalAlign": "middle",
+                        }
+                      }
+                      viewBox="0 0 40 40"
+                      width="1em"
+                    >
+                      <g>
+                        <path
+                          d="m20.1 5.7q-2.9 0-5.5 1.2t-4.6 3-3 4.6-1.1 5.5 1.1 5.5 3 4.6 4.6 3 5.5 1.2 5.6-1.2 4.5-3 3.1-4.6 1.1-5.5-1.1-5.5-3.1-4.6-4.5-3.1-5.6-1.1z m17.2 14.3q0 4.7-2.3 8.6t-6.3 6.2-8.6 2.3-8.6-2.3-6.2-6.2-2.3-8.6 2.3-8.6 6.2-6.2 8.6-2.3 8.6 2.3 6.3 6.2 2.3 8.6z"
+                        />
+                      </g>
+                    </svg>
+                  </IconBase>
+                </FaCircleThin>
+              </button>
+              <p
+                className="todo-list__text"
+              >
+                incomplete todo
+              </p>
+              <button
+                className="todo-list__button--delete"
+                onClick={[Function]}
+              >
+                <FaClose>
+                  <IconBase
+                    viewBox="0 0 40 40"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      preserveAspectRatio="xMidYMid meet"
+                      style={
+                        Object {
+                          "color": undefined,
+                          "verticalAlign": "middle",
+                        }
+                      }
+                      viewBox="0 0 40 40"
+                      width="1em"
+                    >
+                      <g>
+                        <path
+                          d="m33.5 29.5q0 0.9-0.7 1.5l-3 3.1q-0.6 0.6-1.5 0.6t-1.5-0.6l-6.6-6.6-6.5 6.6q-0.7 0.6-1.6 0.6t-1.5-0.6l-3-3.1q-0.6-0.6-0.6-1.5t0.6-1.5l6.5-6.6-6.5-6.5q-0.6-0.7-0.6-1.6t0.6-1.5l3-3q0.6-0.6 1.5-0.6t1.6 0.6l6.5 6.6 6.6-6.6q0.6-0.6 1.5-0.6t1.5 0.6l3.1 3q0.6 0.7 0.6 1.5t-0.6 1.6l-6.6 6.5 6.6 6.6q0.6 0.6 0.6 1.5z"
+                        />
+                      </g>
+                    </svg>
+                  </IconBase>
+                </FaClose>
+              </button>
+            </div>
+          </TodoItem>
+        </CSSTransitionGroupChild>
+      </span>
+    </TransitionGroup>
+  </CSSTransitionGroup>
+</Todos>
+`;
+
+exports[`renders todos component with todo items 1`] = `
 <CSSTransitionGroup
   className="todo-list"
   transitionAppear={false}
