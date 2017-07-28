@@ -8,7 +8,7 @@ it('renders input component without crashing', () => {
   shallow(<Input inputValue={inputValue} />);
 });
 
-it('renders todo component with todo items', () => {
+it('renders input component with todo items', () => {
   const inputComponent = shallow(<Input inputValue={inputValue} />);
   expect(toJson(inputComponent)).toMatchSnapshot();
 });
