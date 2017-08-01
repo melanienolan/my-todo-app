@@ -7,4 +7,4 @@ A to do list app, made with React.
 `npm install`  
 `npm start`
 
-Click [here](https://my-todo-csfnmmsprl.now.sh/) to view the web app.
+Click [here](https://my-todo-uplfwbnlsx.now.sh/) to view the web app.
